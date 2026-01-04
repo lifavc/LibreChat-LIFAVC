@@ -240,20 +240,6 @@ endpoints:
       dropParams: ["stop", "frequency_penalty", "presence_penalty", "top_p"]
 
 # =============================================================================
-# AGENTS ENDPOINT CONFIGURATION
-# =============================================================================
-# This configures the LibreChat Agents feature (different from custom endpoints)
-# Agents can use any provider (OpenAI, Anthropic, custom endpoints)
-# =============================================================================
-agents:
-  # Allow agents to use file search
-  fileSearch: true
-  # Allow agents to use code interpreter (if configured)
-  codeInterpreter: false
-  # Disable marketplace agents (optional)
-  disableMarketplace: false
-
-# =============================================================================
 # FILE CONFIGURATION
 # =============================================================================
 fileConfig:
