@@ -1,7 +1,7 @@
 # =============================================================================
 # LIFA.VC LibreChat Configuration
 # =============================================================================
-# Hybrid setup: LIFA agents route to n8n, plus direct access to AI providers
+# Hybrid setup: LIFA.VC agents route to n8n, plus direct access to AI providers
 # For more information: https://www.librechat.ai/docs/configuration/librechat_yaml
 # =============================================================================
 
@@ -12,18 +12,11 @@ version: 1.0.0
 cache: true
 
 # =============================================================================
-# FILE STORAGE - Hetzner S3-Compatible Object Storage
+# FILE STORAGE -  S3-Compatible Object Storage
 # =============================================================================
-# Using Hetzner Object Storage for GDPR compliance (data stays in EU)
+# Using S3 Object Storage for GDPR compliance (data stays in EU)
 fileStrategies:
   default: "s3"
-
-# S3 configuration is done via environment variables:
-# - S3_BUCKET_NAME
-# - S3_REGION (fsn1, nbg1, or hel1)
-# - S3_ENDPOINT (e.g., https://fsn1.your-objectstorage.com)
-# - S3_ACCESS_KEY_ID
-# - S3_SECRET_ACCESS_KEY
 
 # =============================================================================
 # INTERFACE CUSTOMIZATION
@@ -319,35 +312,3 @@ actions:
     - "drive.googleapis.com"
     - "slack.com"
     - "api.slack.com"
-
-# =============================================================================
-# ENVIRONMENT VARIABLES REFERENCE
-# =============================================================================
-# 
-# === Hetzner S3 Storage ===
-# AWS_ACCESS_KEY_ID=your-hetzner-access-key
-# AWS_SECRET_ACCESS_KEY=your-hetzner-secret-key
-# AWS_REGION=fsn1
-# AWS_BUCKET_NAME=lifa-librechat
-# AWS_ENDPOINT_URL=https://fsn1.your-objectstorage.com
-#
-# === n8n Webhook URLs (one per agent) ===
-# N8N_ALFRED_URL=https://n8n.yourdomain.com/webhook/alfred
-# N8N_ALFRED_KEY=secret-key-alfred
-# N8N_ALEX_URL=https://n8n.yourdomain.com/webhook/alex
-# N8N_ALEX_KEY=secret-key-alex
-# N8N_SARAH_URL=https://n8n.yourdomain.com/webhook/sarah
-# N8N_SARAH_KEY=secret-key-sarah
-# N8N_LINDA_URL=https://n8n.yourdomain.com/webhook/linda
-# N8N_LINDA_KEY=secret-key-linda
-# N8N_MIA_URL=https://n8n.yourdomain.com/webhook/mia
-# N8N_MIA_KEY=secret-key-mia
-# N8N_MARCUS_URL=https://n8n.yourdomain.com/webhook/marcus
-# N8N_MARCUS_KEY=secret-key-marcus
-#
-# === Direct AI Provider Access (for ad-hoc chats) ===
-# OPENAI_API_KEY=sk-...
-# ANTHROPIC_API_KEY=sk-ant-...
-# GOOGLE_KEY=...
-#
-# =============================================================================
