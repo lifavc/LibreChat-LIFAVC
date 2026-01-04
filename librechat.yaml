@@ -138,6 +138,7 @@ endpoints:
       iconURL: "https://cdn.prod.website-files.com/670d763f1593e36762b44a69/695aae1f33dc0322198f3cdb_alex-profile.jpg"
       directEndpoint: true
       forcePrompt: false
+      disableStreaming: true
       streamRate: 0
       addParams:
         stream: false
