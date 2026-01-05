@@ -137,11 +137,13 @@ endpoints:
       modelDisplayLabel: "Alex - Deal Analyst"
       iconURL: "https://cdn.prod.website-files.com/670d763f1593e36762b44a69/695aae1f33dc0322198f3cdb_alex-profile.jpg"
       directEndpoint: true
-      forcePrompt: false
+      #forcePrompt: false
       disableStreaming: true
+      stream: false
       streamRate: 0
       addParams:
-        stream: false
+        session_id: "{{user._id}}"
+        user_email: "{{user.email}}"
       headers:
         Content-Type: "application/json"
       dropParams: ["stop", "frequency_penalty", "presence_penalty", "top_p", "stream"]
