@@ -113,7 +113,6 @@ endpoints:
         X-User-Email: "{{LIBRECHAT_USER_EMAIL}}"
         X-User-Name: "{{LIBRECHAT_USER_NAME}}"
         X-User-Role: "{{LIBRECHAT_USER_ROLE}}"
-      titleConvo: true
       summary: true
     # -----------------------------------------
     # n8n: Alfred (Orchestrator / Chief of Staff)
