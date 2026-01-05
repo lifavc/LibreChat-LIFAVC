@@ -100,7 +100,7 @@ endpoints:
   custom:
     - name: "LIFA.VC Agents"
       apiKey: "${BRIDGE_BEARER_TOKEN}"
-      baseURL: "https://bridge.lifa.tools/v1"
+      baseURL: "https://brn8n.lifa.tools/v1"
       models:
         default: ["alfred", "alex", "sarah", "linda", "mia", "marcus"]
         fetch: true  # Bridge supports /v1/models endpoint
