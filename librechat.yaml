@@ -98,6 +98,23 @@ registration:
 
 endpoints:
   custom:
+    - name: "LIFA.VC Agents"
+      apiKey: "${BRIDGE_BEARER_TOKEN}"
+      baseURL: "https://bridge.lifa.tools/v1"
+      models:
+        default: ["alfred", "alex", "sarah", "linda", "mia", "marcus"]
+        fetch: true  # Bridge supports /v1/models endpoint
+      titleConvo: true
+      titleModel: "alfred"
+      modelDisplayLabel: "LIFA"
+      headers:
+        X-Chat-Id: "{{LIBRECHAT_BODY_CONVERSATIONID}}"
+        X-User-Id: "{{LIBRECHAT_USER_ID}}"
+        X-User-Email: "{{LIBRECHAT_USER_EMAIL}}"
+        X-User-Name: "{{LIBRECHAT_USER_NAME}}"
+        X-User-Role: "{{LIBRECHAT_USER_ROLE}}"
+      titleConvo: true
+      summary: true
     # -----------------------------------------
     # n8n: Alfred (Orchestrator / Chief of Staff)
     # Routes to specialist agents or handles operational tasks
@@ -142,9 +159,6 @@ endpoints:
         user_email: "{{user.email}}"
       headers:
         Content-Type: "application/json"
-        x-api-key: "${N8N_ALEX_KEY}"
-        Authentication: "${N8N_ALEX_KEY}"
-        #Authentication: "Bearer ${N8N_ALEX_KEY}"
         X-User-ID: "{{LIBRECHAT_USER_ID}}"
         X-User-Email: "{{LIBRECHAT_USER_EMAIL}}"
         X-Conversation-ID: "{{LIBRECHAT_BODY_CONVERSATIONID}}"
