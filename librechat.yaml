@@ -137,16 +137,20 @@ endpoints:
       modelDisplayLabel: "Alex - Deal Analyst"
       iconURL: "https://cdn.prod.website-files.com/670d763f1593e36762b44a69/695aae1f33dc0322198f3cdb_alex-profile.jpg"
       directEndpoint: true
-      #forcePrompt: false
-      disableStreaming: true
-      stream: false
-      streamRate: 0
       addParams:
         session_id: "{{user._id}}"
         user_email: "{{user.email}}"
       headers:
         Content-Type: "application/json"
-      dropParams: ["stop", "frequency_penalty", "presence_penalty", "top_p", "stream"]
+        x-api-key: "${N8N_ALEX_KEY}"
+        Authentication: "${N8N_ALEX_KEY}"
+        Authentication: "Bearer ${N8N_ALEX_KEY}"
+        X-User-ID: "{{LIBRECHAT_USER_ID}}"
+        X-User-Email: "{{LIBRECHAT_USER_EMAIL}}"
+        X-Conversation-ID: "{{LIBRECHAT_BODY_CONVERSATIONID}}"
+        X-Parent-Message-ID: "{{LIBRECHAT_BODY_PARENTMESSAGEID}}"
+        X-Message-ID: "{{LIBRECHAT_BODY_MESSAGEID}}"
+      dropParams: ["stop", "frequency_penalty", "presence_penalty", "top_p"]
 
     # -----------------------------------------
     # n8n: Sarah (External Relations)
