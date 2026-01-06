@@ -6,7 +6,7 @@
 # =============================================================================
 
 # Configuration version (required)
-version: 1.0.0
+version: 1.2.1
 
 # Cache settings
 cache: true
@@ -97,6 +97,15 @@ registration:
 # =============================================================================
 
 endpoints:
+  agents:
+    capabilities:
+      - "execute_code"
+      - "file_search"
+      - "actions"
+      - "tools"
+      - "artifacts"
+      - "context"   # Enables "Upload as Text"
+      - "ocr"       # Enhances with OCR
   custom:
     - name: "LIFA.VC Agents"
       apiKey: "${BRIDGE_BEARER_TOKEN}"
@@ -114,7 +123,11 @@ endpoints:
         X-User-Name: "{{LIBRECHAT_USER_NAME}}"
         X-User-Role: "{{LIBRECHAT_USER_ROLE}}"
     #  summary: true
-
+    
+ocr:
+  mistralModel: "mistral-ocr-latest"       # Optional: Specify Mistral model, defaults to "mistral-ocr-latest"
+  apiKey: "${MISTRAL_API_KEY}"           # Optional: Defaults to OCR_API_KEY env variable
+  strategy: "mistral_ocr"                  # Optional: Defaults to "mistral_ocr"
 # =============================================================================
 # FILE CONFIGURATION
 # =============================================================================
@@ -133,6 +146,12 @@ fileConfig:
         - "application/pdf"             # PDFs
         - "text/.*"                     # All text files
         - "application/vnd\\.openxmlformats-officedocument\\..*"  # Office docs (docx, xlsx, pptx)
+  ocr:
+    supportedMimeTypes:
+      - "^image/(jpeg|gif|png|webp|heic|heif)$"
+      - "^application/pdf$"
+      - "^application/vnd\\.openxmlformats-officedocument\\.(wordprocessingml\\.document|presentationml\\.presentation|spreadsheetml\\.sheet)$"
+      
   # Default for all endpoints
   default:
     fileLimit: 10
