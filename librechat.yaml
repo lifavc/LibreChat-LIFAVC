@@ -6,7 +6,7 @@
 # =============================================================================
 
 # Configuration version (required)
-version: 1.2.1
+version: 1.3.1
 
 # Cache settings
 cache: true
@@ -28,17 +28,17 @@ interface:
   # === CORE FEATURES (all enabled for flexibility) ===
   endpointsMenu: true       # Switch between endpoints (n8n, OpenAI, Anthropic, etc.)
   modelSelect: true         # Select models within endpoints
-  parameters: true          # Adjust temperature, etc. when needed
+  parameters: false          # Adjust temperature, etc. when needed
   sidePanel: true           # Side panel for navigation
   presets: true             # Save and reuse conversation presets
-  prompts: true             # Prompt library
+  prompts: false             # Prompt library
   bookmarks: true           # Bookmark conversations
 
   # === AGENTS (enabled - core feature for your setup) ===
-  agents: true              # Create and use LibreChat agents
+  agents: false              # Create and use LibreChat agents
   
   # === MULTI-CONVERSATION (enabled - mix agents in same chat) ===
-  multiConvo: true          # Use multiple agents in one conversation
+  multiConvo: false          # Use multiple agents in one conversation
 
   # === FILE FEATURES ===
   fileCitations: true       # Show file citations in responses
