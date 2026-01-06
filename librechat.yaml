@@ -23,10 +23,7 @@ fileStrategies:
 # =============================================================================
 interface:
   # Welcome message
-  customWelcome: |
-    Welcome to **LIFA.VC AI Platform** — your intelligent partner for venture capital operations.
-    
-    Select an agent from the menu, or create your own for specific tasks.
+  customWelcome: "The LIFA.VC AI Platform"
 
   # === CORE FEATURES (all enabled for flexibility) ===
   endpointsMenu: true       # Switch between endpoints (n8n, OpenAI, Anthropic, etc.)
@@ -46,6 +43,8 @@ interface:
   # === FILE FEATURES ===
   fileCitations: true       # Show file citations in responses
   fileSearch: true          # Search within files
+  secureImageLinks: true
+  imageOutputType: "png"
 
   # === SHARING (enabled for GP team collaboration) ===
   peoplePicker:
@@ -55,7 +54,7 @@ interface:
 
   # === MARKETPLACE (optional - browse community agents) ===
   marketplace:
-    use: true               # Enable if you want to browse/import community agents
+    use: false               # Enable if you want to browse/import community agents
 
   # === MCP SERVERS (optional - enable if you want MCP integrations) ===
   mcpServers:
