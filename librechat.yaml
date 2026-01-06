@@ -54,7 +54,7 @@ interface:
 
   # === MARKETPLACE (optional - browse community agents) ===
   marketplace:
-    use: false               # Enable if you want to browse/import community agents
+    use: true               # Enable if you want to browse/import community agents
 
   # === MCP SERVERS (optional - enable if you want MCP integrations) ===
   mcpServers:
