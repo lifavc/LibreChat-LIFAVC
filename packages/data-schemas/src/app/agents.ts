@@ -20,5 +20,14 @@ export function agentsConfigSetup(
   }
 
   const parsedConfig = agentsEndpointSchema.parse(agentsConfig);
-  return parsedConfig;
+
+  // Explicitly preserve documentSupportedProviders from the raw config
+  // This ensures the field is passed through even if the schema hasn't been rebuilt
+  const rawDocumentSupportedProviders = (agentsConfig as Record<string, unknown>)
+    .documentSupportedProviders as string[] | undefined;
+
+  return {
+    ...parsedConfig,
+    ...(rawDocumentSupportedProviders && { documentSupportedProviders: rawDocumentSupportedProviders }),
+  };
 }
