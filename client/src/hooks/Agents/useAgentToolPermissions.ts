@@ -29,7 +29,19 @@ export default function useAgentToolPermissions(
     return agentId != null && agentId !== '' ? agentsMap?.[agentId] : undefined;
   }, [agentId, agentsMap]);
 
-  const { data: agentData } = useGetAgentByIdQuery(agentId);
+  // Only fetch agent data if we don't already have it in the agents map
+  // This prevents unnecessary 404 errors for deleted/non-existent agents
+  const needsAgentFetch = useMemo(() => {
+    if (!agentId || isEphemeralAgent(agentId)) {
+      return false;
+    }
+    // If agent exists in map with provider info, no need to fetch
+    return !selectedAgent?.provider;
+  }, [agentId, selectedAgent?.provider]);
+
+  const { data: agentData } = useGetAgentByIdQuery(agentId, {
+    enabled: needsAgentFetch,
+  });
 
   const tools = useMemo(
     () =>
